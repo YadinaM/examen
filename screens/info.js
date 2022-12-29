@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useLinkProps } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
@@ -6,15 +6,13 @@ import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'rea
 
 const Stack = createNativeStackNavigator();
 
-const info = ({navigation, route}) =>{
+const Info = ({navigation, route, props}) =>{
 
     return (
         <View>
-           <Text>
-            {route.params.itemTitle}
-           </Text>
+              <Text>{props.title}</Text>
         </View>
     )
 }
 
-export default info;
+export default Info;

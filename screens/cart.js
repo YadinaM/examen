@@ -6,15 +6,15 @@ import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'rea
 
 const Stack = createNativeStackNavigator();
 
-const info = ({navigation, route}) =>{
+const Info = ({navigation, route}) =>{
 
     return (
         <View>
-           <Text>
-               Heyy
-           </Text>
+             <Text>
+                 Heloo
+             </Text>
         </View>
     )
 }
 
-export default info;
+export default Info;

@@ -5,6 +5,7 @@ import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet,Pressable, FlatList, Image } from 'react-native';
 
 import DrinkItems from '../components/drinkItems';
+import info from '../screens/info';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,10 +37,16 @@ const drinks = ({navigation}) =>{
             <Pressable onPress={() => navigation.navigate("cart")}>
                 <Image style={styles.img} source={require('../assets/shopping-cart.png')}></Image>
             </Pressable>
-
-            <FlatList data={drinks} renderItem={({item}) => (
-                 <DrinkItems title={item.title.rendered}></DrinkItems>
-            )}/>
+        
+                <FlatList data={drinks} renderItem={({item}) => (
+                    <DrinkItems 
+                    title={item.title.rendered}
+                    description={item.yoast_head_json.og_description.split()}
+                    image={item.yoast_head_json.og_image}
+                    >
+                    </DrinkItems>
+                )}/>
+           
         </View>
     )
 }
@@ -53,6 +60,7 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         marginLeft:"90%",
+        padding: 10,
     },
 });
 
