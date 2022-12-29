@@ -2,7 +2,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
+import { View, Text, StyleSheet,Pressable, FlatList, Image } from 'react-native';
+
+import DrinkItems from '../components/drinkItems';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +15,7 @@ const drinks = ({navigation}) =>{
     const getDrinks = async () => {
         try {
             const response = await fetch ("https://yadinam.be/wp-json/wp/v2/posts?categories=11", {
-
+                
             })
             const json = await response.json();
             setDrinks(json);
@@ -29,20 +31,29 @@ const drinks = ({navigation}) =>{
 
 
     return (
-        <View>
-            <FlatList data={drinks} renderItem={({item}) => (
-                
-                <View>
-                <Text>{item.title.rendered}</Text>
-            
-            <Pressable onPress ={()=> navigation.navigate ("info", {itemTitle: item.title.rendered})}>
-                <Text>bekijk product:</Text>
+        <View style={styles.screen}>
+
+            <Pressable onPress={() => navigation.navigate("cart")}>
+                <Image style={styles.img} source={require('../assets/shopping-cart.png')}></Image>
             </Pressable>
 
-            </View>
+            <FlatList data={drinks} renderItem={({item}) => (
+                 <DrinkItems title={item.title.rendered}></DrinkItems>
             )}/>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    screen: {
+        padding: 20,
+    },
+
+    img: {
+        width: 20,
+        height: 20,
+        marginLeft:"90%",
+    },
+});
 
 export default drinks;
