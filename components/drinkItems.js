@@ -11,18 +11,21 @@ import info from "../screens/info";
 
 const drinkItems = props => {
     const navigation = useNavigation(); //nieuw onderdeel, iemage doet nog niks
+
     return (
         <View style={styles.list}>
-            <Image source={(props.image)}></Image>
+            <View style={styles.center}>
+                <Image style={styles.img} source={{uri: props.image}} ></Image>
+            </View>
 
             <Text style={styles.title}>{props.title}</Text>
             <Text style={styles.discription}>{props.description}</Text>
-            <Pressable onPress={() => navigation.navigate("info", {itemTitle: props.buttonText})}> 
+            
+            <Pressable style={styles.button} onPress={() => navigation.navigate("info", {itemTitle: props.buttonText, description: props.description, image: props.image })}>  
                 <Text style={styles.kijk}>View {props.title}</Text>
             </Pressable>
         </View>
-    );
-
+    );       
 };
 
 const styles = StyleSheet.create({
@@ -32,8 +35,8 @@ const styles = StyleSheet.create({
       marginHorizontal: 5,
       marginTop: 10,
       marginBottom: 5,
-      borderRadius: 2,
-      backgroundColor: "lightblue",
+      borderRadius: 20,
+      backgroundColor: "#D7C2BD",
     },
     title:{
         fontSize: 18,
@@ -44,6 +47,22 @@ const styles = StyleSheet.create({
     },
     kijk:{
         marginTop: 10,
+    },
+    button:{
+        backgroundColor: "#8798A5",
+        width: 140,
+        borderRadius: 10,
+        marginTop: 10,
+        paddingBottom: 8,
+        paddingLeft: 10,
+    },
+    img: {
+        width: 200,
+        height: 200,
+    },
+    center: {
+        marginLeft: "20%",
+        marginBottom: 20,
     }
 
   });
