@@ -7,6 +7,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Pressable, Image, Button, Ima
 
 const Stack = createNativeStackNavigator();
 
+import info from "../screens/info";
+
 const drinkItems = props => {
     const navigation = useNavigation(); //nieuw onderdeel, iemage doet nog niks
     return (
@@ -15,7 +17,7 @@ const drinkItems = props => {
 
             <Text style={styles.title}>{props.title}</Text>
             <Text style={styles.discription}>{props.description}</Text>
-            <Pressable onPress={() => navigation.navigate("info")}> 
+            <Pressable onPress={() => navigation.navigate("info", {itemTitle: props.buttonText})}> 
                 <Text style={styles.kijk}>View {props.title}</Text>
             </Pressable>
         </View>
