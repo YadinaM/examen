@@ -43,6 +43,7 @@ const drinks = ({navigation}) =>{
                     title={item.title.rendered}
                     description={item.yoast_head_json.og_description.split()}
                     image={item.yoast_head_json.og_image}
+                    buttonText={item.title.rendered}
                     >
                     </DrinkItems>
                 )}/>
