@@ -40,11 +40,10 @@ const drinks = ({navigation}) =>{
         
                 <FlatList data={drinks} renderItem={({item}) => (
                     <DrinkItems 
-                    title={item.title.rendered}
-                    description={item.yoast_head_json.og_description.split()}
-                    image={item.yoast_head_json.og_image}
-                    buttonText={item.title.rendered}
-                    >
+                        title={item.title.rendered}
+                        description={item.yoast_head_json.og_description.split()}
+                        image={item.yoast_head_json.og_image[0].url}
+                        buttonText={item.title.rendered}>
                     </DrinkItems>
                 )}/>
            
