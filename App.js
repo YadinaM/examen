@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="all drinks" component={(drinks)} />
+        <Stack.Screen name="drinks" component={(drinks)} />
         <Stack.Screen name="info" component={(info)} />
         <Stack.Screen name="cart" component={(cart)} />
       </Stack.Navigator>
