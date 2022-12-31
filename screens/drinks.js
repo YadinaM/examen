@@ -30,26 +30,46 @@ const drinks = ({navigation}) =>{
         getDrinks();
     }, []);
 
-
     return (
         <View style={styles.screen}>
 
             <Pressable onPress={() => navigation.navigate("cart")}>
                 <Image style={styles.img} source={require('../assets/shopping-cart.png')}></Image>
             </Pressable>
-        
-                <FlatList data={drinks} renderItem={({item}) => (
-                    <DrinkItems 
-                        title={item.title.rendered}
-                        description={item.yoast_head_json.og_description.split()}
-                        image={item.yoast_head_json.og_image[0].url}
-                        buttonText={item.title.rendered}>
-                    </DrinkItems>
-                )}/>
+
+            <View style={styles.next}>
+                <Pressable onPress={() => navigation.navigate("#", {itemTitle: props.buttonText, description: props.description, image: props.image })}>
+                    <Text>All</Text>
+                </Pressable>
+
+                <Pressable  onPress={() => navigation.navigate("#", {itemTitle: props.buttonText, description: props.description, image: props.image })}>
+                    <Text>met prik</Text>
+                </Pressable>
+
+                <Pressable onPress={() => navigation.navigate("#")}>
+                    <Text>zonder prik</Text>
+                </Pressable>
+
+                <Pressable onPress={() => navigation.navigate("#")}>
+                    <Text>Alcohol</Text>
+                </Pressable>
+            </View>
+
+            <FlatList data={drinks} renderItem={({item}) => (
+                <DrinkItems 
+                    title={item.title.rendered}
+                    description={item.yoast_head_json.og_description.split()}
+                    image={item.yoast_head_json.og_image[0].url}
+                    buttonText={item.title.rendered}>
+                </DrinkItems>
+            )}/>
            
         </View>
-    )
-}
+    );
+};
+
+
+
 
 const styles = StyleSheet.create({
     screen: {
@@ -61,6 +81,11 @@ const styles = StyleSheet.create({
         height: 20,
         marginLeft:"90%",
         padding: 10,
+    },
+    
+    next: {
+        display: 'flex',
+        flexDirection: "row",
     },
 });
 
