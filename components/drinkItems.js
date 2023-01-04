@@ -8,7 +8,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Pressable, Image, Button, Ima
 const Stack = createNativeStackNavigator();
 
 const drinkItems = props => {
-    const navigation = useNavigation(); //nieuw onderdeel, iemage doet nog niks
+    const navigation = useNavigation(); //nieuw onderdeel
 
     return (
         <View>
@@ -25,8 +25,6 @@ const drinkItems = props => {
                 </Pressable>
             </View>
         </View>
-       
-
     );       
 };
 
