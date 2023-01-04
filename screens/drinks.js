@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput } from 'react-native';
+import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput, searchPhrase  } from 'react-native';
 
 import DrinkItems from '../components/drinkItems';
 import info from '../screens/info';
@@ -30,11 +30,31 @@ const drinks = ({navigation}) =>{
         getDrinks();
     }, []);
 
-    return (
+    const getMoviesByTitleSearch = async (enteredText) => {//argument meegegeven door onChangeText
+        try {
+          if (enteredText.length > 0) {
+            const url = encodeURI("https://yadinam.be/wp-json/wp/v2/posts?categories=11&search=" + enteredText);
+            console.log(url);
+            const response = await fetch(url)
+            const json = await response.json();
+            console.log(json); 
+
+            setDrinks(json);
+          }
+
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+    return ( 
         <View style={styles.screen}>
 
            <View style={styles.next}>
-               <TextInput style={styles.input} placeHolder="search by type">
+               <TextInput 
+                    style={styles.input} 
+                    placeHolder="search"
+                    onChangeText={getMoviesByTitleSearch}>
                 </TextInput>
 
                 <Pressable onPress={() => navigation.navigate("cart")}>
