@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet,Pressable, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput } from 'react-native';
 
 import DrinkItems from '../components/drinkItems';
 import info from '../screens/info';
@@ -33,28 +33,15 @@ const drinks = ({navigation}) =>{
     return (
         <View style={styles.screen}>
 
-            <Pressable onPress={() => navigation.navigate("cart")}>
-                <Image style={styles.img} source={require('../assets/shopping-cart.png')}></Image>
-            </Pressable>
+           <View style={styles.next}>
+               <TextInput style={styles.input} placeHolder="search by type">
+                </TextInput>
 
-            <View style={styles.next}>
-                <Pressable onPress={() => navigation.navigate("#", {itemTitle: props.buttonText, description: props.description, image: props.image })}>
-                    <Text>All</Text>
+                <Pressable onPress={() => navigation.navigate("cart")}>
+                    <Image style={styles.img} source={require('../assets/shopping-cart.png')}></Image>
                 </Pressable>
 
-                <Pressable  onPress={() => navigation.navigate("#", {itemTitle: props.buttonText, description: props.description, image: props.image })}>
-                    <Text>met prik</Text>
-                </Pressable>
-
-                <Pressable onPress={() => navigation.navigate("#")}>
-                    <Text>zonder prik</Text>
-                </Pressable>
-
-                <Pressable onPress={() => navigation.navigate("#")}>
-                    <Text>Alcohol</Text>
-                </Pressable>
-            </View>
-
+           </View>
             <FlatList data={drinks} renderItem={({item}) => (
                 <DrinkItems 
                     title={item.title.rendered}
@@ -77,15 +64,22 @@ const styles = StyleSheet.create({
     },
 
     img: {
-        width: 20,
-        height: 20,
-        marginLeft:"90%",
-        padding: 10,
+        width: 10,
+        height: 10,
+        marginLeft:"20%",
+        padding: 13,
     },
     
     next: {
         display: 'flex',
         flexDirection: "row",
+    },
+
+    input: {
+        borderColor: "black",
+        borderWidth: 1,
+        borderRadius: 50,
+        width: 320,
     },
 });
 
