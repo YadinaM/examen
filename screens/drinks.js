@@ -30,12 +30,12 @@ const drinks = ({navigation}) =>{
         getDrinks();
     }, []);
 
-    const getMoviesByTitleSearch = async (enteredText) => {//argument meegegeven door onChangeText
+    const filterDrinks = async (enteredText) => {//argument meegegeven door onChangeText
         try {
           if (enteredText.length > 0) {
-            const url = encodeURI("https://yadinam.be/wp-json/wp/v2/posts?categories=11&search=" + enteredText);
-            console.log(url);
-            const response = await fetch(url)
+            const search = encodeURI("https://yadinam.be/wp-json/wp/v2/posts?categories=11&search=" + enteredText);
+            console.log(search);
+            const response = await fetch(search)
             const json = await response.json();
             console.log(json); 
 
@@ -54,7 +54,7 @@ const drinks = ({navigation}) =>{
                <TextInput 
                     style={styles.input} 
                     placeHolder="search"
-                    onChangeText={getMoviesByTitleSearch}>
+                    onChangeText={filterDrinks}>
                 </TextInput>
 
                 <Pressable onPress={() => navigation.navigate("cart")}>
