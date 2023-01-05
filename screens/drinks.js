@@ -57,8 +57,9 @@ const drinks = ({navigation}) =>{
                     onChangeText={filterDrinks}>
                 </TextInput>
 
-                <Pressable onPress={() => navigation.navigate("cart")}>
+                <Pressable >
                     <Image style={styles.img} source={require('../assets/shopping-cart.png')}></Image>
+                    <Text style={styles.number}>0</Text>
                 </Pressable>
 
            </View>
@@ -73,8 +74,7 @@ const drinks = ({navigation}) =>{
            
         </View>
     );
-};
-
+}; 
 
 
 
@@ -101,6 +101,14 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         width: 320,
     },
+
+    plaats: {
+        fontSize: 14,
+        marginLeft: "35%"
+    },
+    number: {
+        marginLeft:"35%"
+    }
 });
 
 export default drinks;

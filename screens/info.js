@@ -18,9 +18,13 @@ const Info = ({route, props, item}) => {
             <Image style={styles.img} source={{uri: route.params.image}}></Image>
             <Text style={styles.title}>{route.params.itemTitle}</Text>
             <Text style={styles.text}>{route.params.description}</Text>
+
+            <Pressable style={styles.button2}onPress={() => navigation.navigate("company")}>  
+                <Text style={styles.kijk}>Read more about our company</Text>
+            </Pressable>
         </View>         
     );
-};
+}; 
 
 const styles = StyleSheet.create({
     screen: {
@@ -43,7 +47,22 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 16,
         marginTop: 20
-    }
+    },
+
+    button2:{
+        backgroundColor: "#b6b4bf",
+        borderRadius: 10,
+        marginTop: 20,
+        marginBottom: 20,
+        paddingBottom: 8,
+        paddingLeft: 100,
+        paddingRight: 15,
+    },
+
+    kijk:{
+        marginTop: 10,
+    },
+
 });
 
 export default Info;
