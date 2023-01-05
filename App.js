@@ -6,8 +6,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import drinks from './screens/drinks.js';
 import info from './screens/info.js';
-import cart from './screens/cart';
-
+import company from "./screens/company";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +16,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="drinks" component={(drinks)} />
         <Stack.Screen name="info" component={(info)} />
-        <Stack.Screen name="cart" component={(cart)} />
+        <Stack.Screen name="company" component={(company)} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -31,3 +30,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+//<Stack.Screen name="login" component={(drinks)} />
