@@ -7,6 +7,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Pressable, Image, Button, Ima
 
 const Stack = createNativeStackNavigator();
 
+import counting from "../screens/drinks"
+
 const drinkItems = props => {
     const navigation = useNavigation(); //nieuw onderdeel
 
@@ -20,13 +22,22 @@ const drinkItems = props => {
                 <Text style={styles.title}>{props.title}</Text>
                 <Text style={styles.discription}>{props.description}</Text>
                 
-                <Pressable style={styles.button} onPress={() => navigation.navigate("info", {itemTitle: props.buttonText, description: props.description, image: props.image })}>  
-                    <Text style={styles.kijk}>View {props.title}</Text>
-                </Pressable>
+               <View style={styles.next}>
+                    <Pressable style={styles.button} onPress={() => navigation.navigate("info", {itemTitle: props.buttonText, description: props.description, image: props.image })}>  
+                        <Text style={styles.kijk}>View {props.title}</Text>
+                    </Pressable>
+                    <Pressable style={styles.button2}>
+                        <Text style={styles.kijk}>Add to cart</Text>
+                    </Pressable>
+               </View>
             </View>
         </View>
-    );       
+    );
 };
+
+
+
+
 
 const styles = StyleSheet.create({
     list: {
@@ -54,11 +65,21 @@ const styles = StyleSheet.create({
 
     button:{
         backgroundColor: "#8798A5",
-        width: 140,
+        borderRadius: 10,
+        paddingRight: 15,
+        marginTop: 10,
+        paddingBottom: 8,
+        paddingLeft: 15,
+        marginRight: 35,
+    },
+
+    button2:{
+        backgroundColor: "#9082cf",
         borderRadius: 10,
         marginTop: 10,
         paddingBottom: 8,
-        paddingLeft: 10,
+        paddingLeft: 15,
+        paddingRight: 15,
     },
 
     img: {
@@ -70,26 +91,11 @@ const styles = StyleSheet.create({
         marginLeft: "20%",
         marginBottom: 20,
     },
+
+    next: {
+        display: 'flex',
+        flexDirection: "row",
+    },
   });
 
   export default drinkItems;
-
-  /*
-  <View style={styles.next}>
-<Pressable onPress={() => navigation.navigate("#", {itemTitle: props.buttonText, description: props.description, image: props.image })}>
-    <Text>All</Text>
-</Pressable>
-
-<Pressable  onPress={() => navigation.navigate("#", {itemTitle: props.buttonText, description: props.description, image: props.image })}>
-    <Text>met prik</Text>
-</Pressable>
-
-<Pressable onPress={() => navigation.navigate("#")}>
-    <Text>zonder prik</Text>
-</Pressable>
-
-<Pressable onPress={() => navigation.navigate("#")}>
-    <Text>Alcohol</Text>
-</Pressable>
-</View>
-  */
