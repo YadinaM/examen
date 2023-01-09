@@ -6,7 +6,7 @@ import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput, searchPhr
 
 const Stack = createNativeStackNavigator();
 
-const drinks = ({navigation}) =>{
+const Drinks = ({navigation}) =>{
 
     const [drinks, setDrinks] = useState ([]);
 
@@ -186,4 +186,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default drinks;
+export default Drinks;

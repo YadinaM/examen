@@ -8,7 +8,7 @@ import info from '../screens/info';
 
 const Stack = createNativeStackNavigator();
 
-const company = () => {
+const Company = () => {
     return(
         <View>
             <Text style={styles.text}>
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default company;
+export default Company;
