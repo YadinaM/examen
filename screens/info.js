@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native'; //nieuw onderdeel
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
 
-import drinkItems from '../components/drinkItems';
+import Detail from '../components/detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,10 +15,9 @@ const Info = ({route, props, item}) => {
 
     return (
         <View style={styles.screen}>
-            <Image style={styles.img} source={{uri: route.params.image}}></Image>
-            <Text style={styles.title}>{route.params.itemTitle}</Text>
-            <Text style={styles.text}>{route.params.description}</Text>
-
+            <Detail title = {route.params.itemTitle} image = {route.params.image} description ={route.params.description}
+            
+            />
             <Pressable style={styles.button2}onPress={() => navigation.navigate("company")}>  
                 <Text style={styles.kijk}>Read more about our company</Text>
             </Pressable>
