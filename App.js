@@ -7,6 +7,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import drinks from './screens/drinks.js';
 import info from './screens/info.js';
 import company from "./screens/company";
+import shoppingList from "./screens/shoppingList"
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ export default function App() {
         <Stack.Screen name="drinks" component={(drinks)} />
         <Stack.Screen name="info" component={(info)} />
         <Stack.Screen name="company" component={(company)} />
+        <Stack.Screen name="shopping list" component={(shoppingList)} />
       </Stack.Navigator>
     </NavigationContainer>
   );
