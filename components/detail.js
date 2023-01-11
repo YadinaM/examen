@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable} from 'react-native'
 import React from 'react'
 
 const Detail = (props) => {
@@ -6,9 +6,7 @@ const Detail = (props) => {
     <View style={styles.screen}>
             <Image style={styles.img} source={{uri: props.image}}></Image>
             <Text style={styles.title}>{props.title}</Text>
-            <Text style={styles.text}>{props.description}</Text>
-
-            
+            <Text style={styles.text}>{props.description}</Text>     
     </View>         
   )
 }
@@ -35,21 +33,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginTop: 20
     },
-
-    button2:{
-        backgroundColor: "#b6b4bf",
-        borderRadius: 10,
-        marginTop: 20,
-        marginBottom: 20,
-        paddingBottom: 8,
-        paddingLeft: 100,
-        paddingRight: 15,
-    },
-
-    kijk:{
-        marginTop: 10,
-    },
-
 });
 
 export default Detail
