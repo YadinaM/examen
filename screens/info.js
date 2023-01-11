@@ -16,9 +16,8 @@ const Info = ({route, props, item}) => {
     return (
         <View style={styles.screen}>
             <Detail title = {route.params.itemTitle} image = {route.params.image} description ={route.params.description}
-            
             />
-            <Pressable style={styles.button2}onPress={() => navigation.navigate("company")}>  
+            <Pressable style={styles.button2} onPress={() => navigation.navigate("company")}>  
                 <Text style={styles.kijk}>Read more about our company</Text>
             </Pressable>
         </View>         
@@ -29,23 +28,6 @@ const styles = StyleSheet.create({
     screen: {
         padding: 20,
         backgroundColor: "#FAF2FF",
-    },
-
-    title: {
-        fontSize: 30,
-        marginTop:20,
-    },
-
-    img: {
-        width: 300,
-        height: 300,
-        marginLeft:"10%",
-        padding: 10,
-    },
-
-    text: {
-        fontSize: 16,
-        marginTop: 20
     },
 
     button2:{

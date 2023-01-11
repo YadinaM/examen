@@ -61,30 +61,36 @@ const Drinks = ({navigation}) =>{
                     onChangeText={filterDrinks}>
                 </TextInput>
 
-                <Pressable >
+                <Pressable>
                     <Image style={styles.img_cart} source={require('../assets/shopping-cart.png')}></Image>
                     <Text style={styles.number}>{counter}</Text>
                 </Pressable>
-
            </View>
+
+           <View>
+               <Pressable onPress={() => navigation.navigate("shopping list")}>
+                    <Text>Make a shopping list</Text>
+               </Pressable>
+           </View>
+
             <FlatList data={drinks} renderItem={({item}) => (
-                  <View>
+                <View>
                   <View style={styles.list}>
-                     <View style={styles.center}>
-                         <Image style={styles.img} source={{uri: item.yoast_head_json.og_image[0].url}} ></Image>
-                     </View>
-     
-                     <Text style={styles.title}>{item.title.rendered}</Text>
-                     <Text style={styles.discription}>{item.yoast_head_json.og_description.split()}</Text>
-                     
-                    <View style={styles.next}>
-                         <Pressable style={styles.button} onPress={() => navigation.navigate("info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description.split(), image: item.yoast_head_json.og_image[0].url })}>  
-                             <Text style={styles.kijk}>View {item.title.rendered}</Text>
-                         </Pressable>
-                         <Pressable style={styles.button2} onPress={() => increase()}>
-                             <Text style={styles.kijk}>Add to cart</Text>
-                         </Pressable>
-                    </View>
+                        <View style={styles.center}>
+                            <Image style={styles.img} source={{uri: item.yoast_head_json.og_image[0].url}} ></Image>
+                        </View>
+        
+                        <Text style={styles.title}>{item.title.rendered}</Text>
+                        <Text style={styles.discription}>{item.yoast_head_json.og_description.split()}</Text>
+                        
+                        <View style={styles.next}>
+                            <Pressable style={styles.button} onPress={() => navigation.navigate("info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description.split(), image: item.yoast_head_json.og_image[0].url })}>  
+                                <Text style={styles.kijk}>View {item.title.rendered}</Text>
+                            </Pressable>
+                            <Pressable style={styles.button2} onPress={() => increase()}>
+                                <Text style={styles.kijk}>Add to cart</Text>
+                            </Pressable>
+                        </View>
                  </View>
              </View>
               
@@ -125,9 +131,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         marginLeft: "35%"
     },
+    
     number: {
         marginLeft:"35%"
     },
+
     list: {
         padding: 20,
         marginVertical: 5,
@@ -178,11 +186,6 @@ const styles = StyleSheet.create({
       center: {
           marginLeft: "20%",
           marginBottom: 20,
-      },
-  
-      next: {
-          display: 'flex',
-          flexDirection: "row",
       },
 });
 
