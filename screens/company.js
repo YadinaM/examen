@@ -30,13 +30,13 @@ const Company = () => {
            <View style={styles.next}>
                 <Pressable style={styles.button1}>
                     <Text>
-                        Agreed
+                        Agree
                     </Text>
                 </Pressable>
 
                 <Pressable style={styles.button2}>
                     <Text>
-                        Disagreed
+                        Disagree
                     </Text>
                 </Pressable>
            </View>

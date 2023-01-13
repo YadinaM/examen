@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput, TouchableHighlight   } from 'react-native';
+import { View, Text, StyleSheet, Pressable, FlatList, Image, TextInput, TouchableHighlight } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,9 +10,7 @@ const Drinks = ({navigation}) =>{
 
     const getDrinks = async () => {
         try {
-            const response = await fetch ("https://yadinam.be/wp-json/wp/v2/posts?categories=11", {
-                
-            })
+            const response = await fetch ("https://yadinam.be/wp-json/wp/v2/posts?categories=11")
             const json = await response.json();
             setDrinks(json);
             console.log(drinks);
@@ -26,7 +23,7 @@ const Drinks = ({navigation}) =>{
         getDrinks();
     }, []);
 
-    const filterDrinks = async (enteredText) => {//argument meegegeven door onChangeText
+    const filterDrinks = async (enteredText) => {
         try {
           if (enteredText.length > 0) {
             const search = encodeURI("https://yadinam.be/wp-json/wp/v2/posts?categories=11&search=" + enteredText);
@@ -91,8 +88,7 @@ const Drinks = ({navigation}) =>{
                             </TouchableHighlight >
                         </View>
                  </View>
-             </View>
-              
+             </View> 
             )}/>
            
         </View>

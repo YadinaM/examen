@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'; //nieuw onderdeel
 
-
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View, Pressable,} from 'react-native';
 
@@ -9,7 +8,7 @@ import Detail from '../components/detail';
 
 const Stack = createNativeStackNavigator();
 
-const Info = ({route, props, item}) => {
+const Info = ({route}) => {
     const navigation = useNavigation();
 
     return (
@@ -42,7 +41,6 @@ const styles = StyleSheet.create({
     kijk:{
         marginTop: 10,
     },
-
 });
 
 export default Info;
