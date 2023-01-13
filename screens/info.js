@@ -1,10 +1,9 @@
-import { NavigationContainer, useLinkProps } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'; //nieuw onderdeel
 
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
+import {StyleSheet, Text, View, Pressable,} from 'react-native';
 
 import Detail from '../components/detail';
 

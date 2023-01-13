@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TextInput, View, Button, FlatList, Pressable, Text } from 'react-native';
+import { StyleSheet, TextInput, View, FlatList, Text, TouchableHighlight } from 'react-native';
 import List from '../components/List';
 
 const ShoppingList = () => {
@@ -18,17 +17,18 @@ const ShoppingList = () => {
   return (
     <View>
            <View>
-            <TextInput
-            placeholder="add item to your list"
-            style={styles.input}
-            clearButtonMode="always"
-            onChangeText={ListInputHandler}
-            />
-            <Pressable onPress={addItemHandler} style={styles.btn}> 
-            <Text>
-                add to list
-            </Text>
-            </Pressable>
+              <TextInput
+              placeholder="add item to your list"
+              style={styles.input}
+              clearButtonMode="always"
+              onChangeText={ListInputHandler}
+              />
+
+              <TouchableHighlight underlayColor="#D98855" onPress={addItemHandler} style={styles.btn}> 
+                <Text>
+                    add to list
+                </Text>
+              </TouchableHighlight >
            </View>
 
            <FlatList data={items} renderItem={(itemData) => (
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
       marginLeft: 20,
       borderRadius: 10,
     },
+
     btn: {
         backgroundColor: '#D98880',
         borderRadius: 10,

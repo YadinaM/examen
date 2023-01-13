@@ -1,8 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput, searchPhrase  } from 'react-native';
+import { View, Text, StyleSheet,Pressable, FlatList, Image, TextInput, TouchableHighlight   } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -68,12 +67,12 @@ const Drinks = ({navigation}) =>{
            </View>
 
            <View>
-               <Pressable onPress={() => navigation.navigate("shopping list")}>
+               <Pressable style={styles.button3} onPress={() => navigation.navigate("shopping list")}>
                     <Text>Make a shopping list</Text>
                </Pressable>
            </View>
 
-            <FlatList data={drinks} renderItem={({item}) => (
+            <FlatList style={styles.all} data={drinks} renderItem={({item}) => (
                 <View>
                   <View style={styles.list}>
                         <View style={styles.center}>
@@ -87,9 +86,9 @@ const Drinks = ({navigation}) =>{
                             <Pressable style={styles.button} onPress={() => navigation.navigate("info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description.split(), image: item.yoast_head_json.og_image[0].url })}>  
                                 <Text style={styles.kijk}>View {item.title.rendered}</Text>
                             </Pressable>
-                            <Pressable style={styles.button2} onPress={() => increase()}>
+                            <TouchableHighlight underlayColor="#8082cf" style={styles.button2} onPress={() => increase()}>
                                 <Text style={styles.kijk}>Add to cart</Text>
-                            </Pressable>
+                            </TouchableHighlight >
                         </View>
                  </View>
              </View>
@@ -187,6 +186,21 @@ const styles = StyleSheet.create({
           marginLeft: "20%",
           marginBottom: 20,
       },
+
+      button3: {
+        backgroundColor: "#b6b4bf",
+        borderRadius: 10,
+        marginTop: 10,
+        marginBottom: 5,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 125,
+        paddingRight: 15,
+      }, 
+
+      all: {
+          marginBottom: 100,
+      }
 });
 
 export default Drinks;
