@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet} from 'react-native';
 
 import drinks from './screens/drinks.js';
 import info from './screens/info.js';
