@@ -69,7 +69,7 @@ const Drinks = ({navigation}) =>{
                </Pressable>
            </View>
 
-            <FlatList style={styles.all} data={drinks} renderItem={({item}) => (
+            <FlatList ListFooterComponent={<View style={{ height: 100 }}></View>} data={drinks} renderItem={({item}) => (
                 <View>
                   <View style={styles.list}>
                         <View style={styles.center}>
